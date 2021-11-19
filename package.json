@@ -1,0 +1,21 @@
+{
+  "name": "xj-tools",
+  "version": "1.0.2",
+  "description": "javaScript methods",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "axios",
+    "time",
+    "formate",
+    "js",
+    "javaScript"
+  ],
+  "author": "xingjie",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
