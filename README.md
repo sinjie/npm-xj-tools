@@ -20,4 +20,4 @@ let newArr = mergeRemoveSame(arr1, arr2, arr3)
 
 ## 方法说明
 
-[方法文档](./METHODS.md)
+[方法文档](https://github.com/sinjie/npm-xj-tools/blob/master/METHODS.md)
