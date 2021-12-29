@@ -105,7 +105,7 @@ const param = {
   response,
   responseError
 }
-const request = new axios(param)
+const request = new HighAxios(param)
 ```
 
 - copyToClip 文字复制
