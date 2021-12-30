@@ -1,7 +1,7 @@
 import Cookie from "js-cookie";
 
 export const getCookie = (TokenName, option = {}) => {
-  Cookie.get(TokenName, { ...option });
+  return Cookie.get(TokenName, { ...option });
 };
 
 export const setCookie = (TokenName, token, option = {}) => {
