@@ -183,6 +183,12 @@ const type = typeOf(str)
 const hasId = hasOwn(obj, 'id')
 ```
 
+- getObjectIn 深度获取对象的值
+
+```
+getObjectIn({fir: { sec: { thi: {}}}})
+```
+
 - debounce 函数防抖
   > @param func 函数
   > @param wait = 1500 延迟执行毫秒数
