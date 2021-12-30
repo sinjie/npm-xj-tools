@@ -84,9 +84,10 @@ export const regular = {
     pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*(){}[\]/?.>,<'";:]{8,32}$/,
     message: validateMsg.passwordLen8to32WithSymbol
   },
+
   // 密码 8-16位 含特殊符号
   passwordLen8to16WithSymbol: {
-    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*(){}[\]/?.>,<'";:]{8,32}$/,
+    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*(){}[\]/?.>,<'";:]{8,16}$/,
     message: validateMsg.passwordLen8to16WithSymbol
   },
 
@@ -178,5 +179,11 @@ export const regular = {
   netName: {
     pattern: /^[a-zA-Z][a-zA-Z0-9_"'-_\(\)\[\]\.:^]{0,127}$/,
     message: validateMsg.netName
+  },
+
+  // CIDR验证规则
+  cidrCheck: {
+    pattern: /^(?:(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\/([1-9]|[1-2]\d|3[0-2])$/,
+    message: validateMsg.cidrCheck
   }
 }
