@@ -7,5 +7,15 @@ module.exports={
         filename:'[name].js',    //输入的文件名是什么，生成的文件名也是什么
         path:path.resolve(__dirname,'./lib') //指定生成的文件目录
     },
+    // node: {
+    //   fs: 'empty',
+    //   module: 'empty',
+    //   net: 'empty'
+    // },
+    resolve: {
+      fallback: {
+        fs: false
+      }
+    },
     mode:"development"    //开发模式，没有对js等文件压缩，默认生成的是压缩文件
 }

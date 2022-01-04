@@ -1,13 +1,13 @@
-import Cookie from "js-cookie";
+const Cookie = require('js-cookie')
 
-export const getCookie = (TokenName, option = {}) => {
+exports.getCookie = (TokenName, option = {}) => {
   return Cookie.get(TokenName, { ...option });
 };
 
-export const setCookie = (TokenName, token, option = {}) => {
+exports.setCookie = (TokenName, token, option = {}) => {
   Cookie.set(TokenName, token, { expires: 1, ...option });
 };
 
-export const removeCookie = (TokenName, option = {}) => {
+exports.removeCookie = (TokenName, option = {}) => {
   Cookie.remove(TokenName, { ...option });
 };

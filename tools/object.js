@@ -3,7 +3,7 @@
  * @param {String} prototype 属性名
  * @returns Boolean
  */
-export const hasOwn = (obj, prototype) => {
+exports.hasOwn = (obj, prototype) => {
   return Object.hasOwnProperty.call(obj, prototype);
 };
 
@@ -13,7 +13,7 @@ export const hasOwn = (obj, prototype) => {
  * @param keyPath Key path array
  * @param notSetValue Default value for not found
  */
-export const getObjectIn = (collection, keyPath, notSetValue = null) =>
+exports.getObjectIn = (collection, keyPath, notSetValue = null) =>
   keyPath.reduce(
     (rlt, keyIndex) => (rlt && rlt[keyIndex] ? rlt[keyIndex] : null),
     collection

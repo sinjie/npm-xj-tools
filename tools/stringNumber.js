@@ -5,12 +5,12 @@
  * @returns { String }
  */
 
-export const makeUp0 = type => (type < 10 ? String(type).padStart(2, '0') : String(type))
+exports.makeUp0 = type => (type < 10 ? String(type).padStart(2, '0') : String(type))
 
 /*
   * 去首尾空格
   * */
-export const trim = (str) => {
+exports.trim = (str) => {
   return str.replace(/(^\s*)|(\s*$)/g, '')
 }
 
@@ -20,7 +20,7 @@ export const trim = (str) => {
   * @param {Number} index  取值位数(默认2位小数)
   * @param {String} type  类型  'fixed' -- 四舍五入;  'floor' -- 截取;
    */
-export const toFixed = (number, index = 2, type = 'fixed') => {
+exports.toFixed = (number, index = 2, type = 'fixed') => {
   if (this.isNumber(number)) {
     if (type === 'fixed') {
       return number.toFixed(index)

@@ -1,6 +1,6 @@
-import { validateMsg } from './message'
+const { validateMsg } = require('./message')
 
-export const regular = {
+exports.regular = {
   // 数字
   number: {
     pattern: /^[0-9]+$/,

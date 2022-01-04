@@ -1,4 +1,4 @@
-import { makeUp0 } from "./stringNumber";
+const { makeUp0 } = require('./stringNumber')
 /**
  * 时间格式转换
  * @param {Number,'[object Date]'} time 时间戳或者时间对象 或者时间格式的字符串
@@ -6,7 +6,7 @@ import { makeUp0 } from "./stringNumber";
  * @returns
  */
 
-export const dateFormat = (time, fmt = "YY-MM-DD hh:mm:ss") => {
+exports.dateFormat = (time, fmt = "YY-MM-DD hh:mm:ss") => {
   const date =
     Object.prototype.toString.call(new Date(time)) === "[object Date]"
       ? new Date(time)
@@ -36,7 +36,7 @@ export const dateFormat = (time, fmt = "YY-MM-DD hh:mm:ss") => {
   return newTime;
 };
 
-export const passTime = (fromTime) => {
+exports.passTime = (fromTime) => {
   var time = new Date().getTime() - fromTime;
   var m = parseInt(time / 1000 / 60);
   var h = parseInt(m / 60);
@@ -51,7 +51,7 @@ export const passTime = (fromTime) => {
   return y + "刚刚";
 };
 
-export const remainTime = (endTime) => {
+exports.remainTime = (endTime) => {
   var time = endTime - new Date().getTime();
   var obj = { d: 0, h: 0, m: 0, s: 0 };
   if (time > 0) {

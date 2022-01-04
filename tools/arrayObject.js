@@ -5,7 +5,7 @@
   * @param {Number | String} value 值
   * @returns
   */
-export const getLabelByValueFromArray = (arr, value, labelName = 'label', valueKey = 'value') => {
+exports.getLabelByValueFromArray = (arr, value, labelName = 'label', valueKey = 'value') => {
   if (Array.isArray(arr)) {
     const res = arr.filter(item => item[valueKey] === value)
     if (res.length) {
@@ -25,7 +25,7 @@ export const getLabelByValueFromArray = (arr, value, labelName = 'label', valueK
   * @returns
   */
 
-export const cloneDeep = obj => {
+exports.cloneDeep = obj => {
   const objClone = Array.isArray(obj) ? [] : {}
   if (obj && typeof obj === 'object') {
     for (const key in obj) {
@@ -48,7 +48,7 @@ export const cloneDeep = obj => {
  * @returns {Array} 树结构数组，包含塞选字段的数据
  */
 
-export const filterTree = ({ arr, val, key = 'id', children = 'children' }) => {
+exports.filterTree = ({ arr, val, key = 'id', children = 'children' }) => {
   let node = []
   arr.map(item => {
     if (item[key].indexOf(val) >= 0) {

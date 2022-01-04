@@ -11,10 +11,10 @@
  *        @property {responseError=()=>{})}  拦截器-返回-失败
  */
 
-import axios from "axios";
-import { codeConfig } from "./abnormalCodeTable";
+const axios = require('axios')
+const { codeConfig } = require('./abnormalCodeTable')
 
-export class HighAxios {
+class HighAxios {
   constructor(params) {
     this.baseURL = params.baseURL || "";
     this.timeout = params.timeout || "60000";
@@ -78,3 +78,5 @@ export class HighAxios {
     this._errorCallback ? this._errorCallback(msg) : console.error(msg);
   }
 }
+
+exports.HighAxios = HighAxios
