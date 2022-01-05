@@ -25,7 +25,7 @@ exports.getLabelByValueFromArray = (arr, value, labelName = 'label', valueKey = 
   * @returns
   */
 
-exports.cloneDeep = obj => {
+const cloneDeep = obj => {
   const objClone = Array.isArray(obj) ? [] : {}
   if (obj && typeof obj === 'object') {
     for (const key in obj) {
@@ -38,6 +38,7 @@ exports.cloneDeep = obj => {
   }
   return objClone
 }
+exports.cloneDeep = cloneDeep
 
 /**
  * 树节点塞选
