@@ -1,8 +1,8 @@
-export const validateMsg = {
+exports.validateMsg = {
   number: '请输入数字',
   positiveInteger: '请输入正整数',
   positiveIntegerLen1to5: '仅支持1~99999内的正整数',
-  positiveIntegerMaxHour: '请输入876000内的正整数',
+  positiveIntegerMaxHour: '请输入0~876000内的整数',
   nonNegativeInteger: '请输入非负整数',
   positiveNumber: '请输入正数',
   nonNegativeNumber: '请输入非负数',

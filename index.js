@@ -1,9 +1,15 @@
-// 批量引入data目录下的js文件 并导出
-const modulesFiles = require.context('./tools/', true, /\.js$/)
-const modules = modulesFiles.keys().reduce((modules, modulePath) => {
-  const value = modulesFiles(modulePath)
-  return { ...modules, ...value }
-}, {})
-
-module.exports = modules
-
+module.exports = {
+  ...require('./tools/abnormalCodeTable'),
+  ...require('./tools/array'),
+  ...require('./tools/arrayObject'),
+  ...require('./tools/axios'),
+  ...require('./tools/cookie'),
+  ...require('./tools/copy'),
+  ...require('./tools/dateTime'),
+  ...require('./tools/message'),
+  ...require('./tools/method'),
+  ...require('./tools/object'),
+  ...require('./tools/performance'),
+  ...require('./tools/regular'),
+  ...require('./tools/stringNumber')
+}

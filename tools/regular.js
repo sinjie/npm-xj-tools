@@ -1,6 +1,6 @@
-import { validateMsg } from './message'
+const { validateMsg } = require('./message')
 
-export const regular = {
+exports.regular = {
   // 数字
   number: {
     pattern: /^[0-9]+$/,
@@ -19,9 +19,9 @@ export const regular = {
     message: validateMsg.positiveIntegerLen1to5
   },
 
-  // 876000内的正整数
+  // 876000内的整数
   positiveIntegerMaxHour: {
-    pattern: /^[1-9]$|^[1-9]\d$|^876000$/,
+    pattern: /(^\d{0,5}$)|(^[0-7]\d{5}$)|(^8[0-6]\d{4}$)|(^87[0-5]\d{3}$)|(^876000$)/,
     message: validateMsg.positiveIntegerMaxHour
   },
 
@@ -84,9 +84,10 @@ export const regular = {
     pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*(){}[\]/?.>,<'";:]{8,32}$/,
     message: validateMsg.passwordLen8to32WithSymbol
   },
+
   // 密码 8-16位 含特殊符号
   passwordLen8to16WithSymbol: {
-    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*(){}[\]/?.>,<'";:]{8,32}$/,
+    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*(){}[\]/?.>,<'";:]{8,16}$/,
     message: validateMsg.passwordLen8to16WithSymbol
   },
 
@@ -178,5 +179,11 @@ export const regular = {
   netName: {
     pattern: /^[a-zA-Z][a-zA-Z0-9_"'-_\(\)\[\]\.:^]{0,127}$/,
     message: validateMsg.netName
+  },
+
+  // CIDR验证规则
+  cidrCheck: {
+    pattern: /^(?:(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\/([1-9]|[1-2]\d|3[0-2])$/,
+    message: validateMsg.cidrCheck
   }
 }

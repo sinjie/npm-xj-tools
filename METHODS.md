@@ -105,7 +105,7 @@ const param = {
   response,
   responseError
 }
-const request = new axios(param)
+const request = new HighAxios(param)
 ```
 
 - copyToClip 文字复制
@@ -181,6 +181,12 @@ const type = typeOf(str)
 
 ```
 const hasId = hasOwn(obj, 'id')
+```
+
+- getObjectIn 深度获取对象的值
+
+```
+getObjectIn({fir: { sec: { thi: {}}}})
 ```
 
 - debounce 函数防抖

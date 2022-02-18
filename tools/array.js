@@ -4,7 +4,7 @@
  * @param {Array ...} 多个数组传入
  * @returns {Array} 新数组
  */
-export const mergeArray = () => {
+function mergeArray() {
   var arr = Array.prototype.slice.apply(arguments)
   arr = arr.reduce((x, y) => {
     return x.concat(y)
@@ -12,12 +12,14 @@ export const mergeArray = () => {
   return arr
 }
 
+exports.mergeArray = mergeArray
+
 /**
  * 合并去重
  * @param {Array ...} 多个数组传入，仅限单层数组
  * @returns {Array} 新数组
  */
-export const mergeRemoveSame = () => {
+function mergeRemoveSame() {
   var arr = Array.prototype.slice.apply(arguments)
 
   arr = arr.reduce((x, y) => {
@@ -31,12 +33,14 @@ export const mergeRemoveSame = () => {
   return arr
 }
 
+exports.mergeRemoveSame = mergeRemoveSame
+
 /**
  * 合并取不重复的值
  * @param {Array ...} 多个数组传入，仅限单层数组
  * @returns {Array} 新数组
  */
-export const mergeGetOnly = () => {
+function mergeGetOnly() {
   var arr = Array.prototype.slice.apply(arguments)
   arr = arr.reduce((x, y) => {
     return x.concat(y)
@@ -49,13 +53,15 @@ export const mergeGetOnly = () => {
   return arr
 }
 
+exports.mergeGetOnly = mergeGetOnly
+
 /**
  * 排序
  * @param {Array} arr 数组
  * @param {String} type 数据类型
  * @returns {Array} 新数组
  */
-export const sort = (arr, type) => {
+exports.sort = (arr, type) => {
   if (type === undefined) {
     return arr.sort()
   }

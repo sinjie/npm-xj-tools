@@ -11,66 +11,72 @@
  *        @property {responseError=()=>{})}  拦截器-返回-失败
  */
 
-import axios from 'axios'
-import { codeConfig } from './abnormalCodeTable'
+const axios = require('axios')
+const { codeConfig } = require('./abnormalCodeTable')
 
 class HighAxios {
   constructor(params) {
-    this.baseURL = params.baseURL || ''
-    this.timeout = params.timeout || '60000'
-    this._errorCallback = params.errorCallback
-    this._request = params.request
-    this._requestError = params.requestError
-    this._response = params.response
-    this._responseError = params.responseError
+    this.baseURL = params.baseURL || "";
+    this.timeout = params.timeout || "60000";
+    this._errorCallback = params.errorCallback;
+    this._request = params.request;
+    this._requestError = params.requestError;
+    this._response = params.response;
+    this._responseError = params.responseError;
 
-    this.init()
+    this.init();
   }
-  init () {
+  init() {
     this.server = axios.create({
       baseURL: this.baseURL,
-      timeout: this.timeout
-    })
-    this.server.interceptors.request.use(this.request.bind(this), this.requestError.bind(this))
-    this.server.interceptors.response.use(this.response.bind(this), this.responseError.bind(this))
+      timeout: this.timeout,
+    });
+    this.server.interceptors.request.use(
+      this.request.bind(this),
+      this.requestError.bind(this)
+    );
+    this.server.interceptors.response.use(
+      this.response.bind(this),
+      this.responseError.bind(this)
+    );
   }
-  request (config) {
-    const self = this
-    config.cancelToken = new axios.CancelToken(function executor (c) {
-      self.cancel = c
-    })
-    return this._request ? this._request(config) : config
+  request(config) {
+    const self = this;
+    config.cancelToken = new axios.CancelToken(function executor(c) {
+      self.cancel = c;
+    });
+    return this._request ? this._request(config) : config;
   }
-  requestError (error) {
+  requestError(error) {
     if (this._requestError) {
-      this._requestError(error)
+      this._requestError(error);
     } else {
-      this.errorCallback(error.massage)
-      Promise.reject(error)
+      this.errorCallback(error.massage);
+      Promise.reject(error);
     }
   }
-  response (response) {
+  response(response) {
     if (this._response) {
-      return this._response(response)
+      return this._response(response);
     } else {
-      const code = '' + response.data.code
+      const code = "" + response.data.code;
       if (Object.hasOwnProperty.call(codeConfig, code)) {
-        return this.errorCallback(code + '：' + codeConfig.code)
+        return this.errorCallback(code + "：" + codeConfig.code);
       }
-      return response
+      return response;
     }
   }
-  responseError (error) {
+  responseError(error) {
     if (this._responseError) {
-      return this._responseError(error)
+      return this._responseError(error);
     } else {
-      this.errorCallback(error.massage)
-      return Promise.reject(error)
+      this.errorCallback(error.massage);
+      return Promise.reject(error);
     }
   }
-  errorCallback (msg) {
-    this._errorCallback ? this._errorCallback(msg) : console.error(msg)
+  errorCallback(msg) {
+    this._errorCallback ? this._errorCallback(msg) : console.error(msg);
   }
 }
 
-export default HighAxios
+exports.HighAxios = HighAxios

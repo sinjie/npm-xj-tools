@@ -1,4 +1,4 @@
-import { makeUp0 } from './stringNumber'
+const { makeUp0 } = require('./stringNumber')
 /**
  * 时间格式转换
  * @param {Number,'[object Date]'} time 时间戳或者时间对象 或者时间格式的字符串
@@ -6,15 +6,18 @@ import { makeUp0 } from './stringNumber'
  * @returns
  */
 
-export const dateFormat = (time, fmt = 'YY-MM-DD hh:mm:ss') => {
-  const date = Object.prototype.toString.call(new Date(time)) === '[object Date]' ? new Date(time) : new Date()
+exports.dateFormat = (time, fmt = "YY-MM-DD hh:mm:ss") => {
+  const date =
+    Object.prototype.toString.call(new Date(time)) === "[object Date]"
+      ? new Date(time)
+      : new Date();
 
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const min = date.getMinutes()
-  const second = date.getSeconds()
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hour = date.getHours();
+  const min = date.getMinutes();
+  const second = date.getSeconds();
 
   const newTime = fmt
     .replace(/YY/g, year)
@@ -28,34 +31,42 @@ export const dateFormat = (time, fmt = 'YY-MM-DD hh:mm:ss') => {
     .replace(/mm/g, makeUp0(min))
     .replace(/m/g, min)
     .replace(/ss/g, makeUp0(second))
-    .replace(/s/g, second)
+    .replace(/s/g, second);
 
-  return newTime
-}
+  return newTime;
+};
 
-export const passTime = (fromTime) => {
-  var time = (new Date()).getTime() - fromTime
-  var m = parseInt(time / 1000 / 60)
-  var h = parseInt(m / 60)
-  var d = parseInt(h / 24)
-  var month = parseInt(d / 30)
-  var y = parseInt(month / 12)
-  if (y) return y + '年前'
-  if (month) return month + '个月前'
-  if (d) return d + '天前'
-  if (h) return h + '小时前'
-  if (m) return m + '分钟前'
-  return y + '刚刚'
-}
+exports.passTime = (fromTime) => {
+  var time = new Date().getTime() - fromTime;
+  var m = parseInt(time / 1000 / 60);
+  var h = parseInt(m / 60);
+  var d = parseInt(h / 24);
+  var month = parseInt(d / 30);
+  var y = parseInt(month / 12);
+  if (y) return y + "年前";
+  if (month) return month + "个月前";
+  if (d) return d + "天前";
+  if (h) return h + "小时前";
+  if (m) return m + "分钟前";
+  return y + "刚刚";
+};
 
-export const remainTime = (endTime) => {
-  var time = endTime - (new Date()).getTime()
-  var obj = { d: 0, h: 0, m: 0, s: 0 }
+exports.remainTime = (endTime) => {
+  var time = endTime - new Date().getTime();
+  var obj = { d: 0, h: 0, m: 0, s: 0 };
   if (time > 0) {
-    obj.d = Math.floor(time / 1000 / 3600 / 24)
-    obj.h = Math.floor(time / 1000 / 3600 % 24)
-    obj.m = Math.floor(time / 1000 / 60 % 60)
-    obj.s = Math.floor(time / 1000 % 60)
+    obj.d = Math.floor(time / 1000 / 3600 / 24);
+    obj.h = Math.floor((time / 1000 / 3600) % 24);
+    obj.m = Math.floor((time / 1000 / 60) % 60);
+    obj.s = Math.floor((time / 1000) % 60);
   }
-  return obj
-}
+
+  for (const key in obj) {
+    if (Object.hasOwnProperty.call(obj, key)) {
+      const item = obj[key];
+      obj[key] = makeUp0(item);
+    }
+  }
+
+  return obj;
+};

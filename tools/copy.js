@@ -1,6 +1,6 @@
 
 // 单击复制
-export const copyToClip = (content, callback = () => { }) => {
+exports.copyToClip = (content, callback = () => { }) => {
   var aux = document.createElement('input')
   aux.setAttribute('value', content)
   document.body.appendChild(aux)

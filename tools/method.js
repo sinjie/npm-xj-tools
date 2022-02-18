@@ -10,7 +10,7 @@
   *   @param {String} key 唯一字段
   * 不同页面最好new不同的实例，保证相同页面的key不重复即可
   */
-export class Backup {
+class Backup {
   constructor() {
     this.obj = {}
   }
@@ -25,52 +25,54 @@ export class Backup {
   }
 }
 
+exports.Backup = Backup
+
 /* 
   * 是否是字符串
   */
-export const isString = (param) => {
+exports.isString = (param) => {
   return typeof param === 'string'
 }
 
 /* 
 * 是否是布尔值
 */
-export const isBoolean = (param) => {
+exports.isBoolean = (param) => {
   return typeof param === 'boolean'
 }
 
 /* 
 * 是否是数字
 */
-export const isNumber = (param) => {
+exports.isNumber = (param) => {
   return typeof param === 'number'
 }
 
 /* 
 * 是否是数组
 */
-export const isArray = (param) => {
+exports.isArray = (param) => {
   return Object.prototype.toString.call(param) === '[object Array]'
 }
 
 /* 
 * 是否是对象
 */
-export const isObject = (param) => {
+exports.isObject = (param) => {
   return Object.prototype.toString.call(param) === '[object Object]'
 }
 
 /* 
 * 是否是函数
 */
-export const isFunction = (param) => {
+exports.isFunction = (param) => {
   return Object.prototype.toString.call(param) === '[object Function]'
 }
 
 /* 
 * 判断类型
 */
-export const typeOf = (param) => {
+exports.typeOf = (param) => {
   let type = typeof param
   if (isNaN(param)) type = NaN
   if (this.isArray(param)) type = 'Array'

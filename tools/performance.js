@@ -8,7 +8,7 @@
   * input输入搜索键盘事件，非立即执行
   */
 
-export const debounce = (func, wait = 1500, immediate = true) => {
+exports.debounce = (func, wait = 1500, immediate = true) => {
   let timeout
   return function () {
     const context = this
@@ -34,7 +34,7 @@ export const debounce = (func, wait = 1500, immediate = true) => {
   * @param wait 延迟执行毫秒数
   */
 
-export const throttle = (func, wait = 1500) => {
+exports.throttle = (func, wait = 1500) => {
   let timeout
   return function () {
     const context = this
