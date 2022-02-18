@@ -19,9 +19,9 @@ exports.regular = {
     message: validateMsg.positiveIntegerLen1to5
   },
 
-  // 876000内的正整数
+  // 876000内的整数
   positiveIntegerMaxHour: {
-    pattern: /^[1-9]$|^[1-9]\d$|^876000$/,
+    pattern: /(^\d{0,5}$)|(^[0-7]\d{5}$)|(^8[0-6]\d{4}$)|(^87[0-5]\d{3}$)|(^876000$)/,
     message: validateMsg.positiveIntegerMaxHour
   },
 
