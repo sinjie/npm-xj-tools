@@ -1,4 +1,3 @@
-
 /**
  * 数字补0，小于10的数字前面补0，多用于时间日期
  * @param { Number } number 1-2位数的数字或数字格式的字符串
@@ -32,3 +31,17 @@ exports.toFixed = (number, index = 2, type = 'fixed') => {
     return NaN
   }
 }
+
+
+/**
+  * 判断数据是否存在
+  * @param {Number, String} str 数字或数字类型的字符串
+  * @return {Boolean}
+   */
+ exports.hasValue = (str) => {
+  if (str === undefined || str === null) {
+    return false
+  }
+  return true
+}
+
